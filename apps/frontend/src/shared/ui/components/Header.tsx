@@ -15,8 +15,8 @@ export function Header() {
             </Button>
           </li>
           <li>
-            <Button variant='ghost' onClick={() => navigate({ to: '/listing' })}>
-              Listing
+            <Button variant='ghost' onClick={() => navigate({ to: '/listings' })}>
+              Listings
             </Button>
           </li>
         </ul>

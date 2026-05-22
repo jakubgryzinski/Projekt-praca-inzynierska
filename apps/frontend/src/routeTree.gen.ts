@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppLayoutRouteImport } from './routes/_app-layout'
 import { Route as AppLayoutIndexRouteImport } from './routes/_app-layout/index'
-import { Route as AppLayoutListingIndexRouteImport } from './routes/_app-layout/listing/index'
+import { Route as AppLayoutListingsIndexRouteImport } from './routes/_app-layout/listings/index'
+import { Route as AppLayoutListingsListingsVehiclesRouteImport } from './routes/_app-layout/listings/_listings.vehicles'
+import { Route as AppLayoutListingsListingsUsersRouteImport } from './routes/_app-layout/listings/_listings.users'
 
 const AppLayoutRoute = AppLayoutRouteImport.update({
   id: '/_app-layout',
@@ -22,32 +24,56 @@ const AppLayoutIndexRoute = AppLayoutIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppLayoutRoute,
 } as any)
-const AppLayoutListingIndexRoute = AppLayoutListingIndexRouteImport.update({
-  id: '/listing/',
-  path: '/listing/',
+const AppLayoutListingsIndexRoute = AppLayoutListingsIndexRouteImport.update({
+  id: '/listings/',
+  path: '/listings/',
   getParentRoute: () => AppLayoutRoute,
 } as any)
+const AppLayoutListingsListingsVehiclesRoute =
+  AppLayoutListingsListingsVehiclesRouteImport.update({
+    id: '/listings/_listings/vehicles',
+    path: '/listings/vehicles',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
+const AppLayoutListingsListingsUsersRoute =
+  AppLayoutListingsListingsUsersRouteImport.update({
+    id: '/listings/_listings/users',
+    path: '/listings/users',
+    getParentRoute: () => AppLayoutRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AppLayoutIndexRoute
-  '/listing/': typeof AppLayoutListingIndexRoute
+  '/listings/': typeof AppLayoutListingsIndexRoute
+  '/listings/users': typeof AppLayoutListingsListingsUsersRoute
+  '/listings/vehicles': typeof AppLayoutListingsListingsVehiclesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof AppLayoutIndexRoute
-  '/listing': typeof AppLayoutListingIndexRoute
+  '/listings': typeof AppLayoutListingsIndexRoute
+  '/listings/users': typeof AppLayoutListingsListingsUsersRoute
+  '/listings/vehicles': typeof AppLayoutListingsListingsVehiclesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app-layout': typeof AppLayoutRouteWithChildren
   '/_app-layout/': typeof AppLayoutIndexRoute
-  '/_app-layout/listing/': typeof AppLayoutListingIndexRoute
+  '/_app-layout/listings/': typeof AppLayoutListingsIndexRoute
+  '/_app-layout/listings/_listings/users': typeof AppLayoutListingsListingsUsersRoute
+  '/_app-layout/listings/_listings/vehicles': typeof AppLayoutListingsListingsVehiclesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/listing/'
+  fullPaths: '/' | '/listings/' | '/listings/users' | '/listings/vehicles'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/listing'
-  id: '__root__' | '/_app-layout' | '/_app-layout/' | '/_app-layout/listing/'
+  to: '/' | '/listings' | '/listings/users' | '/listings/vehicles'
+  id:
+    | '__root__'
+    | '/_app-layout'
+    | '/_app-layout/'
+    | '/_app-layout/listings/'
+    | '/_app-layout/listings/_listings/users'
+    | '/_app-layout/listings/_listings/vehicles'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -70,11 +96,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppLayoutIndexRouteImport
       parentRoute: typeof AppLayoutRoute
     }
-    '/_app-layout/listing/': {
-      id: '/_app-layout/listing/'
-      path: '/listing'
-      fullPath: '/listing/'
-      preLoaderRoute: typeof AppLayoutListingIndexRouteImport
+    '/_app-layout/listings/': {
+      id: '/_app-layout/listings/'
+      path: '/listings'
+      fullPath: '/listings/'
+      preLoaderRoute: typeof AppLayoutListingsIndexRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app-layout/listings/_listings/vehicles': {
+      id: '/_app-layout/listings/_listings/vehicles'
+      path: '/listings/vehicles'
+      fullPath: '/listings/vehicles'
+      preLoaderRoute: typeof AppLayoutListingsListingsVehiclesRouteImport
+      parentRoute: typeof AppLayoutRoute
+    }
+    '/_app-layout/listings/_listings/users': {
+      id: '/_app-layout/listings/_listings/users'
+      path: '/listings/users'
+      fullPath: '/listings/users'
+      preLoaderRoute: typeof AppLayoutListingsListingsUsersRouteImport
       parentRoute: typeof AppLayoutRoute
     }
   }
@@ -82,12 +122,17 @@ declare module '@tanstack/react-router' {
 
 interface AppLayoutRouteChildren {
   AppLayoutIndexRoute: typeof AppLayoutIndexRoute
-  AppLayoutListingIndexRoute: typeof AppLayoutListingIndexRoute
+  AppLayoutListingsIndexRoute: typeof AppLayoutListingsIndexRoute
+  AppLayoutListingsListingsUsersRoute: typeof AppLayoutListingsListingsUsersRoute
+  AppLayoutListingsListingsVehiclesRoute: typeof AppLayoutListingsListingsVehiclesRoute
 }
 
 const AppLayoutRouteChildren: AppLayoutRouteChildren = {
   AppLayoutIndexRoute: AppLayoutIndexRoute,
-  AppLayoutListingIndexRoute: AppLayoutListingIndexRoute,
+  AppLayoutListingsIndexRoute: AppLayoutListingsIndexRoute,
+  AppLayoutListingsListingsUsersRoute: AppLayoutListingsListingsUsersRoute,
+  AppLayoutListingsListingsVehiclesRoute:
+    AppLayoutListingsListingsVehiclesRoute,
 }
 
 const AppLayoutRouteWithChildren = AppLayoutRoute._addFileChildren(

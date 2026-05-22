@@ -1,0 +1,17 @@
+import { createFileRoute } from '@tanstack/react-router'
+
+import { PageContent } from '@/domains/listings/features/users/components/PageContent'
+import { UsersSubHeader } from '@/domains/listings/features/users/components/subHeader/UsersSubHeader'
+
+export const Route = createFileRoute('/_app-layout/listings/_listings/users')({
+  component: RouteComponent,
+})
+
+function RouteComponent() {
+  return (
+    <>
+      <UsersSubHeader />
+      <PageContent />
+    </>
+  )
+}
