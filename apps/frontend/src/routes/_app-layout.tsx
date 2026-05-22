@@ -8,9 +8,11 @@ export const Route = createFileRoute('/_app-layout')({
 
 function RouteComponent() {
   return (
-    <div>
+    <div className='min-h-svh bg-background text-foreground'>
       <Header />
-      <Outlet />
+      <main className='mx-auto w-full max-w-5xl px-4 py-8'>
+        <Outlet />
+      </main>
     </div>
   )
 }

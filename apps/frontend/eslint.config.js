@@ -10,7 +10,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import importPlugin from 'eslint-plugin-import'
 
 export default defineConfig([
-  globalIgnores(['dist', 'public', '**/.svgr.cjs', '**/routeTree.gen.ts']),
+  globalIgnores(['dist', 'public', 'src/components', '**/.svgr.cjs', '**/routeTree.gen.ts']),
   importPlugin.flatConfigs.recommended,
   {
     settings: {
