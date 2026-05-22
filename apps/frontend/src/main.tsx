@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client'
 
 import { router } from '@/lib/tanstackRouter'
 
+import '@/lib/i18n/i18n'
+
 import './index.css'
 
 const rootElement = document.getElementById('root')!

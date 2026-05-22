@@ -1,0 +1,27 @@
+{
+  "common": {
+    "appName": "Engineering Project",
+    "emptyState": "No data available",
+    "language": "Language"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "listings": "Listings"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "listings": {
+    "title": "Listings",
+    "navigation": {
+      "users": "Users",
+      "vehicles": "Vehicles"
+    },
+    "users": {
+      "title": "Users"
+    },
+    "vehicles": {
+      "title": "Vehicles"
+    }
+  }
+}

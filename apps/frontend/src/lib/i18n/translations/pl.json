@@ -1,0 +1,27 @@
+{
+  "common": {
+    "appName": "Projekt inżynierski",
+    "emptyState": "Brak danych",
+    "language": "Język"
+  },
+  "navigation": {
+    "dashboard": "Panel",
+    "listings": "Kartoteki"
+  },
+  "dashboard": {
+    "title": "Panel"
+  },
+  "listings": {
+    "title": "Kartoteki",
+    "navigation": {
+      "users": "Użytkownicy",
+      "vehicles": "Pojazdy"
+    },
+    "users": {
+      "title": "Użytkownicy"
+    },
+    "vehicles": {
+      "title": "Pojazdy"
+    }
+  }
+}
